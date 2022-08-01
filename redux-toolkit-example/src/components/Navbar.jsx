@@ -9,6 +9,11 @@ import { useNavigate } from "react-router-dom"
 
 export default function Navbar() {
  const navigate = useNavigate()
+ const user = true
+
+ const handleLogout = () => {
+  navigate("login")
+ };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -23,11 +28,14 @@ export default function Navbar() {
           >
             Clarusway News
           </Typography>
-         
-           
+           {user ? (<Button color="inherit" onClick={handleLogout}>
+              Logout
+            </Button>) : (
+
             <Button color="inherit" onClick={() => navigate('/')}>
               Login
             </Button>
+            )}
           
         </Toolbar>
       </AppBar>
